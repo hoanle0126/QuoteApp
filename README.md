@@ -1,16 +1,89 @@
-# React + Vite
+Họ Tên: Lê Văn Xuân Hoàn
+Mã sinh viên: 22IT093
+Lớp sinh hoạt: 22SE1
+Lớp học phần: Lập trình đa nền tảng (3)
+Đề: 3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng Danh ngôn hàng ngày (Daily Quotes)
+Đây là một ứng dụng di động đơn giản được xây dựng cho mục đích học tập, giúp người dùng xem các danh ngôn truyền cảm hứng và lưu lại những câu họ yêu thích.
 
-Currently, two official plugins are available:
+Dự án này sử dụng React.js và được đóng gói thành ứng dụng di động (Android/iOS) bằng Capacitor.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Tính năng chính
+Màn hình chính: Hiển thị một danh ngôn. Ban đầu, danh ngôn này được chọn ngẫu nhiên.
 
-## React Compiler
+Quote mới: Người dùng có thể nhấn nút "Quote mới" để xem danh ngôn tiếp theo trong danh sách (tuần tự).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Yêu thích: Người dùng có thể nhấn ❤️ để thêm hoặc xóa một danh ngôn khỏi danh sách yêu thích.
 
-## Expanding the ESLint configuration
+Màn hình yêu thích: Hiển thị toàn bộ các danh ngôn đã được lưu.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Lưu trữ vĩnh viễn: Danh sách yêu thích được lưu trực tiếp trên thiết bị bằng @capacitor/storage, do đó dữ liệu không bị mất khi đóng ứng dụng.
+
+🛠️ Công nghệ sử dụng
+Framework: React.js
+
+Routing: react-router-dom
+
+Nền tảng Native: Capacitor
+
+Lưu trữ: @capacitor/storage
+
+Styling: CSS thuần
+
+⚙️ Hướng dẫn cài đặt và chạy dự án
+Để chạy dự án này trên máy của bạn, hãy làm theo các bước sau:
+
+1. Tải về và cài đặt thư viện:
+
+Bash
+
+# Clone repository (nếu có) hoặc giải nén
+# Di chuyển vào thư mục dự án
+cd my-quote-app
+
+# Cài đặt các thư viện Node.js cần thiết
+npm install
+2. Build dự án React:
+
+Ứng dụng Capacitor đọc mã từ thư mục build. Chúng ta cần tạo ra thư mục này:
+
+Bash
+
+npm run build
+3. Đồng bộ hóa với Capacitor:
+
+Mỗi khi bạn thay đổi mã trong /src và build lại, bạn cần chạy lệnh này để cập nhật các nền tảng native (Android/iOS):
+
+Bash
+
+npx cap sync
+4. Chạy trên máy ảo/thiết bị thật:
+
+Để chạy trên Android:
+
+Bash
+
+npx cap open android
+(Lệnh này sẽ mở dự án trong Android Studio. Từ đó, bạn chỉ cần nhấn nút "Run" ▶️.)
+
+Để chạy trên iOS (yêu cầu macOS):
+
+Bash
+
+npx cap open ios
+(Lệnh này sẽ mở dự án trong Xcode. Từ đó, bạn chỉ cần nhấn nút "Run" ▶️.)
+
+📁 Cấu trúc thư mục
+/my-quote-app
+├── /src/                 # Toàn bộ mã nguồn React
+│   ├── /components/      # Chứa các màn hình (Home.js, Favorites.js)
+│   ├── /hooks/         # Chứa custom hook (useFavorites.js)
+│   ├── App.css           # File CSS chung
+│   ├── App.js            # Cấu hình router
+│   └── index.js          # Điểm vào React
+├── /screenshots/         # Chứa ảnh chụp màn hình ứng dụng
+├── capacitor.config.json # Cấu hình Capacitor
+├── package.json          # Quản lý thư viện
+└── README.md             # Tệp thông tin này
+
